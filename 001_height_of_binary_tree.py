@@ -48,13 +48,9 @@ def height(root):
     if(root == None or (root.left == None and root.right == None)):
         return 0
 
-    current_left = height(root.left)
-    current_right = height(root.right)
+    left, right = height(root.left), height(root.right)
 
-    if(current_left > current_right):
-        return 1 + current_left
-    else:
-        return 1 + current_right
+    return 1 + (left if(left > right) else right)
 
 
 tree = BinarySearchTree()
